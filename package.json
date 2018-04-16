@@ -1,0 +1,87 @@
+{
+    "name": "react-addon",
+    "displayName": "react-addon",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "Sreevisakh",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:reactaddon.stringRequired",
+        "onCommand:reactaddon.numberRequired",
+        "onCommand:reactaddon.arrayOfRequired",
+        "onCommand:reactaddon.shapeOfRequired",
+        "onCommand:reactaddon.booleanRequired"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "reactaddon.stringRequired",
+                "title": "Add to propTypes: String.isRequired"
+            },
+            {
+                "command": "reactaddon.numberRequired",
+                "title": "Add to propTypes: Number.isRequired"
+            },
+            {
+                "command": "reactaddon.arrayOfRequired",
+                "title": "Add to propTypes: ArrayOf.isRequired"
+            },
+            {
+                "command": "reactaddon.booleanRequired",
+                "title": "Add to propTypes: Boolean.isRequired"
+            },
+            {
+                "command": "reactaddon.shapeOfRequired",
+                "title": "Add to propTypes: ShapeOf.isRequired"
+            }
+
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "reactaddon.stringRequired",
+                    "when": "editorLangId == javascript && editorHasSelection"
+                },
+                {
+                    "command": "reactaddon.shapeRequired",
+                    "when": "editorLangId == javascript && editorHasSelection"
+                },
+                {
+                    "command": "reactaddon.arrayOfRequired",
+                    "when": "editorLangId == javascript && editorHasSelection"
+                },
+                {
+                    "command": "reactaddon.booleanRequired",
+                    "when": "editorLangId == javascript && editorHasSelection"
+                },
+                {
+                    "command": "reactaddon.numberRequired",
+                    "when": "editorLangId == javascript && editorHasSelection"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "@babel/traverse": "^7.0.0-beta.44",
+        "@babel/types": "^7.0.0-beta.44",
+        "babylon": "^6.18.0",
+        "babel-core": "^6.26.0"
+    }
+}
