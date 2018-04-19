@@ -14,8 +14,9 @@
         "onCommand:reactaddon.stringRequired",
         "onCommand:reactaddon.numberRequired",
         "onCommand:reactaddon.arrayOfRequired",
-        "onCommand:reactaddon.shapeOfRequired",
-        "onCommand:reactaddon.booleanRequired"
+        "onCommand:reactaddon.shapeRequired",
+        "onCommand:reactaddon.booleanRequired",
+        "onCommand:reactaddon.functionRequired"
     ],
     "main": "./extension",
     "contributes": {
@@ -37,10 +38,13 @@
                 "title": "Add to propTypes: Boolean.isRequired"
             },
             {
-                "command": "reactaddon.shapeOfRequired",
-                "title": "Add to propTypes: ShapeOf.isRequired"
+                "command": "reactaddon.shapeRequired",
+                "title": "Add to propTypes: Shape.isRequired"
+            },
+            {
+                "command": "reactaddon.functionRequired",
+                "title": "Add to propTypes: Function.isRequired"
             }
-
         ],
         "menus": {
             "editor/context": [
@@ -63,6 +67,10 @@
                 {
                     "command": "reactaddon.numberRequired",
                     "when": "editorLangId == javascript && editorHasSelection"
+                },
+                {
+                    "command": "reactaddon.functionRequired",
+                    "when": "editorLangId == javascript && editorHasSelection"
                 }
             ]
         }
@@ -72,16 +80,17 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
-        "eslint": "^4.11.0",
+        "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
+        "eslint": "^4.19.1",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
     },
     "dependencies": {
         "@babel/traverse": "^7.0.0-beta.44",
         "@babel/types": "^7.0.0-beta.44",
-        "babylon": "^6.18.0",
-        "babel-core": "^6.26.0"
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^8.2.3",
+        "babylon": "^6.18.0"
     }
 }
